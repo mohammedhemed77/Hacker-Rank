@@ -17,4 +17,5 @@ for (int index = 0 ; index < length ; index ++ ) cin >> arr[index];
 // Reverse display array elements 
 for (int index = length -1 ; index >=0 ; index-- ) cout<<  arr[index];
 
+return 0 ; 
 }
