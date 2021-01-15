@@ -6,7 +6,7 @@
 using namespace std;
 
 
-using namespace std;
+
 
 /*
  * Complete the 'dynamicArray' function below.
