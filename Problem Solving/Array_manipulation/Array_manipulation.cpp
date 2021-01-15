@@ -1,56 +1,96 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
- 
+#include <bits/stdc++.h>
+
 using namespace std;
 
-long arrayManipulation(int n, vector<vector<int>> queries) {
+vector<string> split_string(string);
 
-     vector <int> manipulatedArr(n, 0);
-
-    int k = 0, a = 0, b = 0;
-    for (auto it : manipulatedArr) cout << it << " ";
-        cout << endl;
-
-        for (auto q : queries)
-        {
-            if (q.size() > 2)
-            {
-                a = (*q.begin());
-                b = (*(q.begin() + 1));
-                k = (*(q.begin() + 2));
-
-                // update inner for loop size in the run time 
-                for (int index = a; index <= b; index++)
-                {
-                    manipulatedArr[index - 1] += k;
-                }
-
-                for (auto it : manipulatedArr) cout << it << " ";
-                cout << endl;
-
-            }
-        }
-    long int result = (int)*max_element(manipulatedArr.begin(), manipulatedArr.end());
-    return result;
+// Complete the arrayManipulation function below.
+long long int arrayManipulation(int n, vector<vector<int>> queries) {
+    
+    
+    auto k = 0 , a = 0 , b = 0 ;
+    vector <long long int> manipulatedArr(n+1);
+            
+    
+    for (auto q : queries)
+    {
+        
+        
+        a =  (*q.begin()) ;
+        b =  (*(q.begin()+1));
+        k =  (*(q.begin()+2));
+        
+        
+        manipulatedArr[a-1] += k;
+        manipulatedArr[b] += -1*k;   
+    
+    }
+    
+    for (auto index = 1 ; index<=n ; index++ )
+        manipulatedArr[index] = manipulatedArr[index] + manipulatedArr[index-1];
+            
+    return *(max_element(manipulatedArr.begin(),manipulatedArr.end())); 
+    
 }
 
 int main()
 {
+    ofstream fout(getenv("OUTPUT_PATH"));
 
-    
-    vector < vector <int >> v1 = 
-    {   
-        {10 ,3},
-        { 1,5 ,3},
-        { 4,8,7},
-        { 6,9,1},
-    };
+    string nm_temp;
+    getline(cin, nm_temp);
 
-        
-    long int l = arrayManipulation (10,v1); 
-    cout  << "max Element =" << l << endl;
-    system("pause");
+    vector<string> nm = split_string(nm_temp);
+
+    int n = stoi(nm[0]);
+
+    int m = stoi(nm[1]);
+
+    vector<vector<int>> queries(m);
+    for (int i = 0; i < m; i++) {
+        queries[i].resize(3);
+
+        for (int j = 0; j < 3; j++) {
+            cin >> queries[i][j];
+        }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    long result = arrayManipulation(n, queries);
+
+    fout << result << "\n";
+
+    fout.close();
+
     return 0;
+}
+
+vector<string> split_string(string input_string) {
+    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+        return x == y and x == ' ';
+    });
+
+    input_string.erase(new_end, input_string.end());
+
+    while (input_string[input_string.length() - 1] == ' ') {
+        input_string.pop_back();
+    }
+
+    vector<string> splits;
+    char delimiter = ' ';
+
+    size_t i = 0;
+    size_t pos = input_string.find(delimiter);
+
+    while (pos != string::npos) {
+        splits.push_back(input_string.substr(i, pos - i));
+
+        i = pos + 1;
+        pos = input_string.find(delimiter, i);
+    }
+
+    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+
+    return splits;
 }
