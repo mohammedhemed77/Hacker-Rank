@@ -6,7 +6,7 @@ int main ()
 int length ; 
 
 // scann array length  
-cin  >> length ; 
+cin  >>  length ; 
 
 // static cast 
 int* arr = static_cast<int*> (malloc (sizeof(int) * length)) ;
