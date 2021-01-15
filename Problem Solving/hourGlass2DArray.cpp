@@ -5,7 +5,7 @@
 #include <limits>
 using namespace std;
 
-int hourglass(vector< vector <int> >& arr) {
+int hourglass(vector< vector <int> > & arr) {
     // store dimensions of 2D vector 
     int n = arr.size(), o = arr[0].size();
 
