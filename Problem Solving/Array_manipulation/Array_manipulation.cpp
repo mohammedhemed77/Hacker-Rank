@@ -50,7 +50,7 @@ int main()
 
         
     long int l = arrayManipulation (10,v1); 
-    cout << "max Element =" << l << endl;
+    cout  << "max Element =" << l << endl;
     system("pause");
     return 0;
 }
