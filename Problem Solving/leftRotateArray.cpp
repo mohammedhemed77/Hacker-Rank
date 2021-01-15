@@ -41,7 +41,7 @@ int main()
     
     // display array after rotation 
     //cout << "array after " << rotations << " rotations : " << endl ;
-    for (int a = 0 ; a<arrSize ; a++) cout << arr[a] << " " ;  
+    for (int a = 0 ; a<arrSize ;  a++) cout << arr[a] << " " ;  
 
 
 
