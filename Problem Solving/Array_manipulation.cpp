@@ -7,7 +7,7 @@ using namespace std;
 
 long arrayManipulation(int n, vector<vector<int>> queries) {
 
-    vector <int> manipulatedArr(n, 0);
+     vector <int> manipulatedArr(n, 0);
 
     int k = 0, a = 0, b = 0;
     for (auto it : manipulatedArr) cout << it << " ";
