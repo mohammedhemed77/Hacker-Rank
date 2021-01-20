@@ -1,1 +1,4 @@
-## Problem Solving using C++ and STL in HackerRank website 
+# HackerRank
+## Solving https://www.hackerrank.com website problems
+### Sections that solved
+- Problem Solving ⭐⭐⭐
