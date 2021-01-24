@@ -1,21 +1,9 @@
 bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
-typedef SinglyLinkedListNode* nodePtr; 
-nodePtr cursor1 = head1 ;
-nodePtr cursor2 = head2 ; 
-int length1 = 0 , length2 = 0 ;
-// if two lists are empty 
-if ((head1 == NULL) && (head2 == NULL)) return true;  
-if ((head1 == NULL) ^ (head2 == NULL))  return false;
-
-while ((cursor1 != NULL) || (cursor2 !=NULL)) 
-{  
-    
-    if ((cursor1 !=NULL)&&(cursor1 !=NULL))
-        if ((cursor1->data) != (cursor2->data ))
-             return false; 
-    
-    if (cursor1!= NULL) {cursor1 = cursor1->next ; length1++; }
-    if (cursor2!= NULL) {cursor2 = cursor2->next ; length2++; }
-}
-return (length1 == length2) ? true : false;
+vector<int> v1 ;
+vector<int> v2 ;
+auto cursor1 = head1; auto cursor2 = head2; 
+while(cursor1) {v1.push_back(cursor1->data); cursor1 = cursor1->next;}
+while(cursor2) {v2.push_back(cursor2->data); cursor2 = cursor2->next;}
+if (v1 == v2) return true;
+return false;
 }
